@@ -48,7 +48,11 @@ public class GildedRose {
 	public void lessQuality(Item item) {
 		if (item.getQuality() > 0) {
 			if (item.getName() != "Sulfuras, Hand of Ragnaros") {
-				item.setQuality(item.getQuality() - 1);
+				if (item.getName() == "Conjured Mana Cake") {
+					item.setQuality(item.getQuality() - 2);
+				} else {
+					item.setQuality(item.getQuality() - 1);
+				}
 			}
 		}
 	}
