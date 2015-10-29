@@ -3,7 +3,7 @@ package gildedrose;
 /**
  * Created by darkabsolute on 16/10/15.
  */
-public class LessQuality {
+public class LessQuality extends MethodsGil {
     public void qualityLessThat50(Item item) {
         if (item.getQuality() < 50) {
             item.setQuality(item.getQuality() + 1);
