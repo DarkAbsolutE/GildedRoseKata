@@ -5,7 +5,7 @@ package gildedrose;
  */
 public abstract class ProductsAbstrac extends ShopAbstrac {
 
-    abstract int amountProducts();
-    abstract void products();
+    abstract void lessQuality(Item item);
+    abstract void mostQuality(Item item);
 
 }
