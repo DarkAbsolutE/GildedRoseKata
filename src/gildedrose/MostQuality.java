@@ -3,7 +3,7 @@ package gildedrose;
 /**
  * Created by darkabsolute on 4/11/15.
  */
-public class MostQuality {
+public class MostQuality implements MostQualityInterface, MethosEqualsInterface {
 
     public void mostQuality(Item item) {
         if (item.getQuality() < 50) {
@@ -23,6 +23,13 @@ public class MostQuality {
     public void qualityLessThat50(Item item) {
         if (item.getQuality() < 50 && item.getSellIn() < 0 && item.getName().equals("Aged Brie")) {
             item.setQuality(item.getQuality() + 1);
+        }
+    }
+
+    public void diffAgienBackspace(Item item, Instances instances) {
+        if (item.getName().equals("Aged Brie")
+                || item.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
+            instances.getMost().mostQuality(item);
         }
     }
 }
