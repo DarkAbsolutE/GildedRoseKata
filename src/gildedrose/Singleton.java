@@ -5,9 +5,7 @@ package gildedrose;
  */
 public class Singleton extends ProductsAbstrac {
 
-    LessQuality less = new LessQuality();
-    MostQuality most = new MostQuality();
-    SellIn sell = new SellIn();
+    Instances instances;
 
     private static Singleton ourInstance = new Singleton();
 
@@ -16,40 +14,24 @@ public class Singleton extends ProductsAbstrac {
     }
 
     private Singleton() {
-
+        instances = new Instances();
     }
 
     @Override
     void lessQuality(Item item) {
 
-        if (!item.getName().equals("Aged Brie")
-                && !item.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-            less.lessQuality(item);
-        }
+        instances.getLess().diffAgienBackspace(item, instances);
 
-        if (item.getSellIn() < 0) {
-            if (!item.getName().equals("Aged Brie")) {
-                if (!item.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    less.lessQuality(item);
-                } else {
-                    item.setQuality(item.getQuality() - item.getQuality());
-                }
-            } else {
-                most.qualityLessThat50(item);
-            }
-        }
+        instances.getLess().sellInLessThatCero(item, instances);
     }
 
     @Override
     void mostQuality(Item item) {
-        if (item.getName().equals("Aged Brie")
-                || item.getName().equals("Backstage passes to a TAFKAL80ETC concert")) {
-            most.mostQuality(item);
-        }
+        instances.getMost().diffAgienBackspace(item, instances);
     }
 
     @Override
     void sellIn(Item item) {
-        sell.sellIn(item);
+        instances.getSell().sellIn(item);
     }
 }
